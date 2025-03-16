@@ -14,7 +14,11 @@ RUN a2enmod rewrite
 RUN chown -R www-data:www-data /var/www/html
 
 # Expose port 80 for web traffic
-EXPOSE 3000
+EXPOSE 80
 
 # Start Apache
 CMD ["apache2-foreground"]
+
+RUN apt-get update && apt-get install -y libmariadb-dev
+
+RUN docker-php-ext-install mysqli
