@@ -1,0 +1,158 @@
+
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background-color: #354152;
+    color: #7e8ba3;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+    min-height: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+
+/* login page */
+
+
+
+.loginform{
+    background-color: #354152;
+    /* border: 1px solid red; */
+    box-shadow: 0 0 20px #000;
+    text-align: center;
+    padding: 64px 40px;
+    margin: auto;
+}
+
+.loginform form{
+    margin-top: 16px;
+}
+
+.loginform  input {
+    border: 1px solid #242c37;
+    border-radius: 999px;
+    background-color: transparent;
+    text-align: center;
+    outline: 0;
+    padding: 8px 16px;
+    width: 90%;
+    font-size: 20px;
+}
+
+.loginform input[type=submit]{
+    background-image: linear-gradient(160deg, #8ceabb 0%, #378f7b 100%);
+    color: #fff;
+    margin-bottom: 96px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.loginform h1{
+    font-size: 45px;
+    font-weight: 100;
+    margin: 16px 0;
+    text-transform: uppercase;
+}
+
+svg {
+    height: 50px;
+    max-width: 40%;
+    vertical-align: middle;
+}
+
+svg path{
+    fill:#8ceabb;
+}
+
+
+/*for the index.php page*/
+/* generating tokens for arriving customers */
+.generateToken{
+    background-color: #354152;
+    /* border: 1px solid red; */
+    box-shadow: 0 0 20px #000;
+    /* text-align: center; */
+    padding: 30px 100px;
+    margin: auto;
+}
+
+.generateToken form label{
+    font-size: 19px;
+    /* padding: 5px 10px; */
+    line-height: 35px;
+}
+.generateToken input[type=submit]{
+    background-image: linear-gradient(160deg, #8ceabb 0%, #378f7b 100%);
+    color: #fff;
+    margin-bottom: 96px;
+    width: 100%;
+
+    cursor: pointer;
+    border: 1px solid #242c37;
+    border-radius: 999px;
+    background-color: transparent;
+    text-align: center;
+    outline: 0;
+    padding: 8px 16px;
+    width: 90%;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.generateToken h4{
+    font-weight: 100;
+    font-size: 18px;
+    color: #8ceabb;
+}
+
+.generateToken label:hover{
+    color: #378f7b;
+}
+
+.generateToken input[type=radio]{
+    border-radius: 50%;
+    height: 17px;
+    width: 17px;
+}
+
+
+/* for the call next customer input page */
+
+.callNextCustomer{
+    background-color: #354152;
+    /* border: 1px solid red; */
+    box-shadow: 0 0 20px #000;
+    /* text-align: center; */
+    padding: 100px;
+    margin: auto;
+}
+.callNextCustomer:hover{
+    background-color: #378f7b;
+}
+
+.callNextCustomer input{
+    color: #fff;
+    background-color: transparent;
+    text-align: center;
+    outline: none;
+    padding: 40px;
+    font-size: 20px;
+    margin: auto;
+    font-size: 30px;
+}
+
+.callNextCustomer input:hover{
+    background-color: #378f7b;
+    cursor: pointer;
+    border: none;
+}
