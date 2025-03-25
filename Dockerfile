@@ -22,3 +22,15 @@ CMD ["apache2-foreground"]
 RUN apt-get update && apt-get install -y libmariadb-dev
 
 RUN docker-php-ext-install mysqli
+
+# Set ServerName to suppress warning
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
+# Install required dependencies
+RUN apt-get update && apt-get install -y \
+    libzip-dev \
+    unzip \
+    zip \
+    libonig-dev \
+    libpq-dev \
+    && docker-php-ext-install zip pdo pdo_mysql mbstring
