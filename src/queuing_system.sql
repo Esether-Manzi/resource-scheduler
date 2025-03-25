@@ -11,7 +11,7 @@
  Target Server Version : 90001 (9.0.1)
  File Encoding         : 65001
 
- Date: 14/03/2025 20:54:11
+ Date: 25/03/2025 01:02:28
 */
 
 SET NAMES utf8mb4;
@@ -27,35 +27,20 @@ CREATE TABLE `admin` (
   `username` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `priority` varchar(255) DEFAULT NULL,
+  `status` int DEFAULT NULL,
+  `served` int DEFAULT NULL,
+  `threshold` int DEFAULT NULL,
   `date_registered` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 ;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 ;
 
 -- ----------------------------
 -- Records of admin
 -- ----------------------------
 BEGIN;
-INSERT INTO `admin` (`id`, `fullname`, `username`, `password`, `priority`, `date_registered`) VALUES (1, 'Kobumanzi Esether', 'esether', '12345', 'Cash Deposit', '2025-03-13 17:12:40');
-COMMIT;
-
--- ----------------------------
--- Table structure for priority
--- ----------------------------
-DROP TABLE IF EXISTS `priority`;
-CREATE TABLE `priority` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `priority_level` int DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 ;
-
--- ----------------------------
--- Records of priority
--- ----------------------------
-BEGIN;
-INSERT INTO `priority` (`id`, `name`, `priority_level`) VALUES (1, 'VIP', 1);
-INSERT INTO `priority` (`id`, `name`, `priority_level`) VALUES (2, 'Coporate', 2);
-INSERT INTO `priority` (`id`, `name`, `priority_level`) VALUES (3, 'Normal', 3);
+INSERT INTO `admin` (`id`, `fullname`, `username`, `password`, `priority`, `status`, `served`, `threshold`, `date_registered`) VALUES (1, 'Kobumanzi Esether', 'esether', '12345', 'Cash Deposit', 1, 7, 9, '2025-03-13 17:12:40');
+INSERT INTO `admin` (`id`, `fullname`, `username`, `password`, `priority`, `status`, `served`, `threshold`, `date_registered`) VALUES (2, 'Nakalembe Sarah', 'sarah', '12345', 'Cash Withdraw', 1, 7, 9, '2025-03-20 15:42:41');
+INSERT INTO `admin` (`id`, `fullname`, `username`, `password`, `priority`, `status`, `served`, `threshold`, `date_registered`) VALUES (3, 'Derek Tibbeingana', 'derek', '12345', 'Check Deposit', 2, 9, 9, '2025-03-20 15:55:41');
 COMMIT;
 
 -- ----------------------------
@@ -76,31 +61,38 @@ CREATE TABLE `queue` (
   `time_in` timestamp NULL DEFAULT NULL,
   `time_called` timestamp NULL DEFAULT NULL,
   `time_finished` timestamp NULL DEFAULT NULL,
+  `waiting_time` time DEFAULT NULL,
+  `service_time` time DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 ;
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8mb4 ;
 
 -- ----------------------------
 -- Records of queue
 -- ----------------------------
 BEGIN;
-INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`) VALUES (4, 'CD', 4, 1, 'Cash Deposit', NULL, 4, 3, 1, 1, '2025-03-09 16:47:02', '2025-03-14 14:47:17', '2025-03-14 14:47:31');
-INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`) VALUES (5, 'CD', 5, 1, 'Cash Deposit', NULL, 5, 3, 1, 1, '2025-03-09 19:48:58', '2025-03-14 14:47:31', '2025-03-14 14:47:32');
-INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`) VALUES (6, 'CD', 6, 1, 'Cash Deposit', NULL, 6, 3, 1, 1, '2025-03-10 20:16:42', '2025-03-14 14:47:32', '2025-03-14 14:47:33');
-INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`) VALUES (7, 'CD', 7, 1, 'Cash Deposit', NULL, 7, 3, 1, 1, '2025-03-10 20:34:50', '2025-03-14 14:47:33', '2025-03-14 14:47:55');
-INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`) VALUES (8, 'CD', 8, 1, 'Cash Deposit', NULL, 8, 3, 1, 1, '2025-03-10 20:35:47', '2025-03-14 14:47:55', '2025-03-14 14:56:05');
-INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`) VALUES (9, 'CD', 9, 3, 'Cash Deposit', NULL, 9, 3, 1, 1, '2025-03-10 20:59:34', '2025-03-14 14:56:05', '2025-03-14 14:56:34');
-INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`) VALUES (10, 'CD', 10, 1, 'Cash Deposit', NULL, 10, 3, 1, 1, '2025-03-14 14:02:57', '2025-03-14 14:56:34', '2025-03-14 15:18:46');
-INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`) VALUES (11, 'CD', 11, 1, 'Cash Deposit', NULL, 11, 3, NULL, 1, '2025-03-14 14:49:38', '2025-03-14 15:18:46', '2025-03-14 15:18:50');
-INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`) VALUES (12, 'CD', 12, 1, 'Cash Deposit', NULL, 12, 3, NULL, 1, '2025-03-14 14:52:15', '2025-03-14 15:18:50', '2025-03-14 15:18:50');
-INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`) VALUES (13, 'CD', 13, 1, 'Cash Deposit', NULL, 13, 3, 1, 1, '2025-03-14 14:53:22', '2025-03-14 15:34:53', '2025-03-14 15:34:54');
-INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`) VALUES (14, 'CD', 14, 1, 'Cash Deposit', NULL, 14, 3, 1, 1, '2025-03-14 14:53:49', '2025-03-14 15:34:54', '2025-03-14 15:34:55');
-INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`) VALUES (15, 'CD', 15, 1, 'Cash Deposit', NULL, 15, 3, 1, 1, '2025-03-14 14:53:55', '2025-03-14 15:34:55', '2025-03-14 15:34:57');
-INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`) VALUES (16, 'CW', 1, 2, 'Cash Withdraw', NULL, 16, 3, NULL, 1, '2025-03-14 15:15:36', '2025-03-14 15:34:57', '2025-03-14 15:35:03');
-INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`) VALUES (17, 'CKD', 1, 3, 'Check Deposit', NULL, 1, 3, NULL, 1, '2025-03-14 19:51:25', '2025-03-14 20:03:30', '2025-03-14 20:04:35');
-INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`) VALUES (18, 'CD', 16, 1, 'Cash Deposit', NULL, 2, 3, NULL, 1, '2025-03-14 19:54:01', '2025-03-14 20:01:18', '2025-03-14 20:03:30');
-INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`) VALUES (19, 'CW', 2, 2, 'Cash Withdraw', NULL, 3, 2, NULL, 1, '2025-03-14 19:56:51', '2025-03-14 20:04:35', NULL);
-INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`) VALUES (20, 'CKD', 2, 3, 'Check Deposit', NULL, 4, 1, NULL, NULL, '2025-03-14 19:57:05', NULL, NULL);
-INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`) VALUES (21, 'FX', 1, 1, 'Forex', NULL, 5, 1, NULL, NULL, '2025-03-14 19:57:12', NULL, NULL);
+INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`, `waiting_time`, `service_time`) VALUES (44, 'CD', 1, 3, 'Cash Deposit', 7, 1, 3, 1, 1, '2025-03-23 17:11:41', '2025-03-23 18:05:01', '2025-03-23 18:05:04', '00:53:20', '00:00:03');
+INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`, `waiting_time`, `service_time`) VALUES (45, 'CKD', 1, 1, 'Check Deposit', 10, 2, 3, NULL, 3, '2025-03-23 17:11:47', '2025-03-23 17:14:49', '2025-03-23 17:29:28', '00:03:02', '00:14:39');
+INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`, `waiting_time`, `service_time`) VALUES (46, 'CW', 1, 2, 'Cash Withdraw', 5, 3, 3, NULL, 1, '2025-03-23 17:11:51', '2025-03-23 17:30:42', '2025-03-23 18:05:01', '00:18:51', '00:34:19');
+INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`, `waiting_time`, `service_time`) VALUES (47, 'CD', 2, 3, 'Cash Deposit', 7, 4, 3, 1, 1, '2025-03-23 17:11:55', '2025-03-23 18:05:04', '2025-03-23 18:05:28', '00:53:09', '00:00:24');
+INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`, `waiting_time`, `service_time`) VALUES (48, 'EFT', 1, 1, 'Electronic Funds Transfer', 15, 5, 3, NULL, 1, '2025-03-23 17:12:01', '2025-03-23 17:15:58', '2025-03-23 17:30:42', '00:03:57', '00:14:44');
+INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`, `waiting_time`, `service_time`) VALUES (49, 'CD', 3, 1, 'Cash Deposit', 7, 6, 3, NULL, 3, '2025-03-23 17:12:05', '2025-03-23 17:29:28', '2025-03-23 18:06:12', '00:17:23', '00:36:44');
+INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`, `waiting_time`, `service_time`) VALUES (50, 'CW', 2, 3, 'Cash Withdraw', 5, 7, 3, NULL, 2, '2025-03-23 17:12:07', '2025-03-23 17:31:35', '2025-03-23 17:32:08', '00:19:28', '00:00:33');
+INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`, `waiting_time`, `service_time`) VALUES (51, 'WU', 1, 3, 'Western Union', 15, 8, 3, 1, 3, '2025-03-23 17:12:10', '2025-03-23 18:06:12', '2025-03-23 18:06:40', '00:54:02', '00:00:28');
+INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`, `waiting_time`, `service_time`) VALUES (52, 'CD', 4, 3, 'Cash Deposit', 7, 9, 3, 1, 3, '2025-03-23 17:12:13', '2025-03-23 18:06:40', '2025-03-23 18:07:16', '00:54:27', '00:00:36');
+INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`, `waiting_time`, `service_time`) VALUES (53, 'CD', 5, 3, 'Cash Deposit', 7, 10, 3, 1, 2, '2025-03-23 17:12:17', '2025-03-23 18:07:52', '2025-03-23 18:07:53', '00:55:35', '00:00:01');
+INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`, `waiting_time`, `service_time`) VALUES (54, 'CD', 6, 3, 'Cash Deposit', 7, 11, 3, 1, 2, '2025-03-23 17:14:05', '2025-03-23 18:07:53', '2025-03-23 18:07:54', '00:53:48', '00:00:01');
+INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`, `waiting_time`, `service_time`) VALUES (55, 'CD', 7, 3, 'Cash Deposit', 7, 12, 3, 1, 2, '2025-03-23 17:14:11', '2025-03-23 18:09:59', '2025-03-23 18:19:09', '00:55:48', '00:09:10');
+INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`, `waiting_time`, `service_time`) VALUES (56, 'CW', 3, 3, 'Cash Withdraw', 5, 13, 3, NULL, 2, '2025-03-23 17:14:15', '2025-03-23 17:32:08', '2025-03-23 18:07:52', '00:17:53', '00:35:44');
+INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`, `waiting_time`, `service_time`) VALUES (58, 'CD', 8, 3, 'Cash Deposit', 7, 1, 3, NULL, 1, '2025-03-23 18:20:02', '2025-03-23 18:22:06', '2025-03-23 18:22:07', '00:02:04', '00:00:01');
+INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`, `waiting_time`, `service_time`) VALUES (59, 'CW', 4, 3, 'Cash Withdraw', 5, 2, 3, NULL, 3, '2025-03-23 18:20:06', '2025-03-23 18:21:27', '2025-03-23 18:21:30', '00:01:21', '00:00:03');
+INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`, `waiting_time`, `service_time`) VALUES (60, 'CW', 5, 2, 'Cash Withdraw', 5, 1, 3, NULL, 1, '2025-03-23 18:22:38', '2025-03-23 18:22:55', '2025-03-23 18:22:57', '00:00:17', '00:00:02');
+INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`, `waiting_time`, `service_time`) VALUES (61, 'CD', 9, 3, 'Cash Deposit', 7, 1, 3, NULL, 2, '2025-03-23 18:24:38', '2025-03-23 18:26:44', '2025-03-23 18:26:45', '00:02:06', '00:00:01');
+INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`, `waiting_time`, `service_time`) VALUES (62, 'CW', 6, 3, 'Cash Withdraw', 5, 2, 3, NULL, 3, '2025-03-23 18:24:43', '2025-03-23 18:25:48', '2025-03-23 18:26:03', '00:01:05', '00:00:15');
+INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`, `waiting_time`, `service_time`) VALUES (63, 'CD', 10, 2, 'Cash Deposit', 7, 1, 3, NULL, 2, '2025-03-23 18:27:00', '2025-03-23 18:27:20', '2025-03-23 18:28:32', '00:00:20', '00:01:12');
+INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`, `waiting_time`, `service_time`) VALUES (64, 'CD', 11, 3, 'Cash Deposit', 7, 1, 3, NULL, 1, '2025-03-25 00:36:46', '2025-03-25 00:36:51', '2025-03-25 00:37:12', '00:00:05', '00:00:21');
+INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`, `waiting_time`, `service_time`) VALUES (65, 'CD', 12, 3, 'Cash Deposit', 7, 1, 3, NULL, 3, '2025-03-25 00:55:56', '2025-03-25 00:56:30', '2025-03-25 00:56:32', '00:00:34', '00:00:02');
+INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`, `waiting_time`, `service_time`) VALUES (66, 'CD', 13, 2, 'Cash Deposit', 7, 2, 3, NULL, 3, '2025-03-25 00:56:00', '2025-03-25 00:56:26', '2025-03-25 00:56:30', '00:00:26', '00:00:04');
+INSERT INTO `queue` (`id`, `prefix`, `surfix`, `priority`, `service`, `period`, `queue_position`, `status`, `flag`, `teller`, `time_in`, `time_called`, `time_finished`, `waiting_time`, `service_time`) VALUES (67, 'CW', 7, 1, 'Cash Withdraw', 5, 3, 3, NULL, 3, '2025-03-25 00:56:06', '2025-03-25 00:56:15', '2025-03-25 00:56:26', '00:00:09', '00:00:11');
 COMMIT;
 
 -- ----------------------------
@@ -123,7 +115,7 @@ INSERT INTO `services` (`id`, `service`, `time`) VALUES (2, 'Cash Withdraw', 5);
 INSERT INTO `services` (`id`, `service`, `time`) VALUES (3, 'Check Deposit', 10);
 INSERT INTO `services` (`id`, `service`, `time`) VALUES (4, 'Electronic Funds Transfer', 15);
 INSERT INTO `services` (`id`, `service`, `time`) VALUES (5, 'western Union', 15);
-INSERT INTO `services` (`id`, `service`, `time`) VALUES (6, 'Forex', 10);
+INSERT INTO `services` (`id`, `service`, `time`) VALUES (6, 'Forex', 5);
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

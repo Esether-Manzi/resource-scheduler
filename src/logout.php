@@ -1,9 +1,5 @@
 <?php
-    include "db.php";
-// remove all session variables
+    include "functions.php";
     session_unset();
-
-// destroy the session
     session_destroy();
-
     header("Location:login.php");

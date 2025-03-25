@@ -1,158 +1,126 @@
-
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    height: 100%;
-}
-
-body {
-    background-color: #354152;
-    color: #7e8ba3;
-    font-family: Arial, Helvetica, sans-serif;
-    margin: auto;
-    min-height: 100%;
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    
-}
+/* global */
+body{margin: 0;}
+.color1{background-color: rgb(238, 72, 149);}
+.color2{background-color: rgb(58, 183, 58);}
+.color3{background-color: rgb(50, 147, 244);}
+.color4{background-color: rgb(131, 49, 219);}
+.color5{background-color: rgb(239, 61, 61);}
 
 
 /* login page */
-
-
-
-.loginform{
-    background-color: #354152;
-    /* border: 1px solid red; */
-    box-shadow: 0 0 20px #000;
+.login_heading{
     text-align: center;
-    padding: 64px 40px;
-    margin: auto;
+    margin-top: 10%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(84, 83, 83);
 }
 
-.loginform form{
-    margin-top: 16px;
+.login_form{
+    width: 400px;
+    margin: 40px auto;
+    padding: 40px 20px;
+    box-shadow: 1px 13px 27px -3px rgba(0,0,0,0.75);
 }
 
-.loginform  input {
-    border: 1px solid #242c37;
-    border-radius: 999px;
-    background-color: transparent;
-    text-align: center;
-    outline: 0;
-    padding: 8px 16px;
-    width: 90%;
-    font-size: 20px;
-}
-
-.loginform input[type=submit]{
-    background-image: linear-gradient(160deg, #8ceabb 0%, #378f7b 100%);
-    color: #fff;
-    margin-bottom: 96px;
-    width: 100%;
-    cursor: pointer;
-}
-
-.loginform h1{
-    font-size: 45px;
-    font-weight: 100;
-    margin: 16px 0;
-    text-transform: uppercase;
-}
-
-svg {
-    height: 50px;
-    max-width: 40%;
-    vertical-align: middle;
-}
-
-svg path{
-    fill:#8ceabb;
-}
-
-
-/*for the index.php page*/
-/* generating tokens for arriving customers */
-.generateToken{
-    background-color: #354152;
-    /* border: 1px solid red; */
-    box-shadow: 0 0 20px #000;
-    /* text-align: center; */
-    padding: 30px 100px;
-    margin: auto;
-}
-
-.generateToken form label{
-    font-size: 19px;
-    /* padding: 5px 10px; */
-    line-height: 35px;
-}
-.generateToken input[type=submit]{
-    background-image: linear-gradient(160deg, #8ceabb 0%, #378f7b 100%);
-    color: #fff;
-    margin-bottom: 96px;
-    width: 100%;
-
-    cursor: pointer;
-    border: 1px solid #242c37;
-    border-radius: 999px;
-    background-color: transparent;
-    text-align: center;
-    outline: 0;
-    padding: 8px 16px;
-    width: 90%;
-    font-size: 20px;
-    margin-top: 20px;
-}
-
-.generateToken h4{
-    font-weight: 100;
-    font-size: 18px;
-    color: #8ceabb;
-}
-
-.generateToken label:hover{
-    color: #378f7b;
-}
-
-.generateToken input[type=radio]{
-    border-radius: 50%;
-    height: 17px;
-    width: 17px;
-}
-
-
-/* for the call next customer input page */
-
-.callNextCustomer{
-    background-color: #354152;
-    /* border: 1px solid red; */
-    box-shadow: 0 0 20px #000;
-    /* text-align: center; */
-    padding: 100px;
-    margin: auto;
-}
-.callNextCustomer:hover{
-    background-color: #378f7b;
-}
-
-.callNextCustomer input{
-    color: #fff;
-    background-color: transparent;
-    text-align: center;
+.form_input{
+    border: 1px solid rgb(189, 189, 189);
+    width: 80%;
+    height: 25px;
+    border-radius: 0;
     outline: none;
-    padding: 40px;
-    font-size: 20px;
-    margin: auto;
-    font-size: 30px;
+    padding: 5px 15px;
+    margin: 10px auto;
+    letter-spacing: 1px;
+    color: rgb(119, 118, 118);
 }
 
-.callNextCustomer input:hover{
-    background-color: #378f7b;
-    cursor: pointer;
+.form_button{
+    border: 1px solid rgb(189, 189, 189);
+    width: 30%;
+    height: 40px;
+    border-radius: 0;
     border: none;
+    outline: none;
+    padding: 5px 15px;
+    margin: 10px auto;
+    letter-spacing: 1px;
+    color: rgb(224, 223, 223);
+    background-color: rgb(64, 193, 41);
 }
+
+/* frame arear */
+
+.main{
+    height: 100vh;
+    display: flex;
+}
+
+.main_left{
+    height: 100%;
+    width: 20%;
+    background-color: rgb(137, 136, 136);
+}
+
+.main_left ul a{
+    text-decoration: none;
+}
+
+.main_left ul a li{
+    font-size: 20px;
+    list-style: none;
+    color: rgb(230, 228, 228);
+    margin-top: 30px;
+}
+
+.main_right{
+    height: 100%;
+    width: 80%;
+    background-color: rgb(232, 232, 232);
+}
+
+/* dashboard */
+.page_heading{
+    margin: 40px 0 0 40px ;
+    color: rgb(115, 114, 114);
+}
+
+.my_row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dash_card{
+    border-radius: 4px;
+    width: 280px;
+    height: 120px;
+    margin: 40px;
+    color: rgb(233, 232, 232);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    padding: 10px;
+}
+
+.next_customer_button{
+    border: 2px solid rgba(141, 218, 248, 0.404);
+    width: 200px;
+    height: 50px;
+    border-radius: 2px;
+    padding: 5px 15px;
+    margin: 40px 50px;
+    letter-spacing: 1px;
+    color: rgb(224, 223, 223);
+    background-color: rgb(38, 125, 247);
+}
+
+.next_customer_button:hover{
+    background-color: rgb(33, 111, 220);
+    cursor: pointer;
+}
+
+
+.answer{
+    margin: 0 40px ;
+    font-size: 20px;
+    color: rgb(115, 114, 114);
+}
+
