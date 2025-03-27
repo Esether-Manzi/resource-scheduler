@@ -1,7 +1,7 @@
 <?php
 session_start(); // start sessions
 date_default_timezone_set('Africa/Kampala'); // emphasize timezone to local time
-$conn = mysqli_connect("mysql_db","root","root","queuing_system");
+$conn = mysqli_connect("mysql_db","essie","essie","queuing_system");
     // $conn = mysqli_connect("localhost","root","","queuing_system"); // database connection
 
     if(!$conn){mysqli_connect_error($conn);} // check for any connection errors
