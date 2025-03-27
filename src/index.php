@@ -1,6 +1,5 @@
 <?php
     include "functions.php";
-    // if(!$_SESSION["userId"]){header("Location:login.php");}
 
     if(isset($_POST['generateToken'])){
         list($service, $period) = explode("," , $_POST['service']);
@@ -60,24 +59,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
 <body>
-    <form action="" method="post">
-        <label for="">Choose a service</label><br>
-        <input type="radio" name="service" value="Cash Deposit,7" required><label for="">Cash Deposit</label><br>
-        <input type="radio" name="service" value="Cash Withdraw,5" required><label for="">Cash Withdraw</label><br>
-        <input type="radio" name="service" value="Check Deposit,10" required><label for="">Check Deposit</label><br>
-        <input type="radio" name="service" value="Electronic Funds Transfer,15" required><label for="">Electronic Funds Transfer</label><br>
-        <input type="radio" name="service" value="Western Union,15" required><label for="">Western Union</label><br>
-        <input type="radio" name="service" value="Forex,5" required><label for="">Forex</label><br>
+    <h1 class="token_heading">Welcome To BANK</h1>
+    <form class="token_form" action="" method="post">
+        <label class="label_name" for="">Choose a service</label><br>
+        <input class="radios_inputs" type="radio" name="service" value="Cash Deposit,7" required><label class="label_option" for="">Cash Deposit</label><br>
+        <input class="radios_inputs" type="radio" name="service" value="Cash Withdraw,5" required><label class="label_option" for="">Cash Withdraw</label><br>
+        <input class="radios_inputs" type="radio" name="service" value="Check Deposit,10" required><label class="label_option" for="">Check Deposit</label><br>
+        <input class="radios_inputs" type="radio" name="service" value="Electronic Funds Transfer,15" required><label class="label_option" for="">Electronic Funds Transfer</label><br>
+        <input class="radios_inputs" type="radio" name="service" value="Western Union,15" required><label class="label_option" for="">Western Union</label><br>
+        <input class="radios_inputs" type="radio" name="service" value="Forex,5" required><label class="label_option" for="">Forex</label><br>
 
-        <label for="">Customer Catgory</label><br>
-        <input type="radio" name="priority" value="1" required><label for="">VIP</label><br>
-        <input type="radio" name="priority" value="2" required><label for="">Coporate</label><br>
-        <input type="radio" name="priority" value="3" required><label for="">Normal</label><br>
+        <label class="label_name" for="">Customer Catgory</label><br>
+        <input class="radios_inputs" type="radio" name="priority" value="1" required><label class="label_option" for="">VIP</label><br>
+        <input class="radios_inputs" type="radio" name="priority" value="2" required><label class="label_option" for="">Coporate</label><br>
+        <input class="radios_inputs" type="radio" name="priority" value="3" required><label class="label_option" for="">Normal</label><br>
 
-        <input type="submit" value="Generate Token" name="generateToken">
+        <input type="submit" class="generate_token_button" value="Generate Token" name="generateToken">
     </form>
 </body>
 </html>
